@@ -48,3 +48,18 @@ Repository includes all the knowledge from basic to advanced about nginx server 
     - An important web server task is serving out files(such as images or static HTML pages).
     - Create the `data/www` directory and put an index.html file with any context into it and the `/data/images` directory and place some images in it.
     
+
+***Configuring Nginx***
+
+- To config server of Nginx, you can go to the directory `etc/nginx/` and edit the `nginx.conf` file.
+
+
+## Use cases of Nginx
+
+- In this repository, I will practise all of nginx's use cases from serving static websites, load balancer, reverse proxy , SSL , so on.
+
+- And Using Nginx in different environment like cloud, k8s,...
+
+
+---
+Thank you for reading my README.md file about the nginx-in-action.
