@@ -27,5 +27,40 @@ server {
 
 **Setting Up Reverse Proxy with Load Balancing**
 
-Load balancing distributes incoming requests across multiple backend servers to ensure no single server becomes overwhelmed. Nginx supports several load-balancing algorithms:
+ Load balancing distributes incoming requests across multiple backend servers to ensure no single server becomes overwhelmed. Nginx supports several load-balancing algorithms:
 
+-   Round-Robin : Distributes requests evenly across all backend servers.
+
+```bash
+upstream backend_servers{
+    server backend1.example.com;
+    server backend2.example.com;
+}
+
+server{
+    listen 80;
+    server_name yourdomain.com;
+
+    location / {
+        proxy_pass http://backend_servers;
+    }
+}
+```
+-   Least Connections: Directs requests to the server with the fewer active connections.
+
+```bash
+upstream backend_servers {
+    least_conn;
+    server backend1.example.com;
+    server backend2.example.com;
+}
+```
+-   IP Hash: Route requests from the same client IP backend server.
+
+```bash
+upstream backend_servers {
+    ip_hash;
+    server backend1.example.com;
+    server backend2.example.com;
+}
+```
